@@ -1,0 +1,48 @@
+.layout-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  & > header {
+    height: 64px;
+    flex: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+    }
+
+    div.title-page {
+      margin: 0 20px;
+    }
+
+    div.nav {
+      a {
+        min-width: 100px;
+        text-align: center;
+        height: 64px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        text-decoration: none;
+        span {
+          flex: 1;
+        }
+      }
+
+      a.active {
+        background: #556cd6;
+        color: #fff;
+        font-weight: 600;
+      }
+
+      a:hover {
+        background: #556cd6;
+        color: #fff;
+        font-weight: 600;
+      }
+    }
+  }
+}

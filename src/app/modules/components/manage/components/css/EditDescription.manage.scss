@@ -1,0 +1,31 @@
+.edit-description-manage-component {
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .input {
+    margin-bottom: 30px;
+    .title {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+    }
+  }
+
+  .type-select {
+    min-width: 200px;
+  }
+
+  .possible-values {
+    .table-top {
+      background-color: #556cd6;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+
+    .value-italic {
+      font-style: italic;
+    }
+  }
+}

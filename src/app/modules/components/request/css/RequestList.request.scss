@@ -1,0 +1,22 @@
+.request-list-component {
+  .tabs {
+    margin-bottom: 10px;
+  }
+  .request-table {
+    .table-top {
+      background-color: #556cd6;
+      color: #fff;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+    .status {
+      padding: 5px 10px;
+      width: 80px;
+      display: inline-block;
+      color: #fff;
+      border-radius: 10px;
+      text-align: center;
+      text-transform: capitalize;
+    }
+  }
+}

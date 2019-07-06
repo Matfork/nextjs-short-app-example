@@ -1,0 +1,16 @@
+.manage-page {
+  .manage-content {
+    display: flex;
+    flex-direction: row;
+
+    .menu {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .description {
+      flex: 4;
+      margin-left: 20px;
+    }
+  }
+}

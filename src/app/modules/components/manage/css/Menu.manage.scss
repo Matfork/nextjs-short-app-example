@@ -1,0 +1,14 @@
+.menu-manage-component {
+  .option {
+    padding: 10px 20px;
+    min-width: 150px;
+    background: #f5f5f5;
+    color: #556cd6;
+    cursor: pointer;
+
+    &.selected {
+      background-color: #556cd6;
+      color: #f5f5f5;
+    }
+  }
+}
