@@ -34,7 +34,7 @@ class Manage extends Component<ManagePageProps> {
     return (
       <div className="manage-page">
         <Head>
-          <title>Manage page</title>
+          <title>Manage | S Bank</title>
         </Head>
         <h1>Manage Data</h1>
 

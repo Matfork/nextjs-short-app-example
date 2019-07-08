@@ -13,7 +13,7 @@ class _Review extends React.Component<any> {
     return (
       <div className="review-component">
         <Head>
-          <title>Review page</title>
+          <title>Review | S Bank</title>
         </Head>
         <h1>Reviews</h1>
         <div>TODO</div>

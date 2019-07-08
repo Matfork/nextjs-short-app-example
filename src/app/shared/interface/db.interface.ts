@@ -16,6 +16,7 @@ interface DbPossibleValues {
   id: number;
   value: string;
   description: string;
+  isDefault: boolean;
 }
 
 interface DbRequest {

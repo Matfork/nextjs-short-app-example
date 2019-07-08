@@ -40,7 +40,7 @@ const mapStateToProps = (state: any) => {
   };
 };
 
-export default connect(
+ export default connect(
   mapStateToProps,
   null
 )(MenuManageComponent);

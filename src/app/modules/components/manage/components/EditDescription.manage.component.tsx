@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { DatabaseStorageService } from '../../../../shared/services/DataStorage.service';
 import { ModesAvailable } from '../Description.manage.component';
-import { Formik, Field } from 'formik';
+import { Formik, Field, FieldArray } from 'formik';
 import {
   RTextField,
   RSelect,
@@ -30,16 +30,15 @@ const EditDescriptionManageComponent: React.SFC<
   EditDescriptionManageProps
 > = props => {
   const { menuId, onChangeMode, onMenuRequest } = props;
-
   const [desc, setDesc] = useState<DbDescription | null>(null);
 
   useEffect(() => {
-    const desc: DbDescription = DatabaseStorageService.db
-      .get('manage.description')
-      .find({
+    const desc: DbDescription = DatabaseStorageService.getTableDataBy(
+      'manage.description',
+      {
         id: menuId
-      })
-      .value();
+      }
+    );
 
     setDesc(desc);
   }, [menuId]);
@@ -51,9 +50,16 @@ const EditDescriptionManageComponent: React.SFC<
           keyName: desc.keyName,
           type: desc.type,
           description: desc.description,
-          isPersonalData: desc.isPersonalData
+          isPersonalData: desc.isPersonalData,
+          possibleValues: desc.possibleValues
         }}
         onSubmit={(values, actions) => {
+          values.possibleValues.forEach((el, i: number) => {
+            if (!el.id) {
+              el.id = i;
+            }
+          });
+
           // Following section could also be done in a saga method and update data manually
           // in reducer, then onMenuRequest() wouldn't be needed (like here it is needed) but you will need to find a wait
           // to know where the saga side effect is finished and state already update in order to call onChangeMode('read');
@@ -151,6 +157,7 @@ const EditDescriptionManageComponent: React.SFC<
                   name="isPersonalData"
                   style={{ margin: '0 auto', display: 'block' }}
                   label="Is this personal data?"
+                  checked={!!props.values.isPersonalData}
                   component={RCheckboxField}
                 />
               </div>
@@ -159,33 +166,68 @@ const EditDescriptionManageComponent: React.SFC<
             <div className="possible-values">
               <div className="table-top"> POSSIBLE VALUES</div>
 
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>VALUE</TableCell>
-                    <TableCell>DESCRIPTION</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {desc.possibleValues &&
-                    desc.possibleValues.map(pv => (
-                      <TableRow key={pv.id}>
-                        <TableCell component="th" scope="row">
-                          {pv.value !== 'null' ? (
-                            <span className="value-italic">
-                              &#123;{pv.value}&#125;
-                            </span>
-                          ) : (
-                            pv.value
-                          )}
-                        </TableCell>
-                        <TableCell>{pv.description}</TableCell>
-                      </TableRow>
-                    ))}
-                </TableBody>
-              </Table>
+              <FieldArray
+                name="possibleValues"
+                render={({ push, remove }) => (
+                  <React.Fragment>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell>VALUE</TableCell>
+                          <TableCell>DESCRIPTION</TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>
+                        {props.values.possibleValues &&
+                          props.values.possibleValues.map((pv, i: number) => (
+                            <TableRow key={i}>
+                              <TableCell component="th" scope="row">
+                                <Field
+                                  type="text"
+                                  name={`possibleValues[${i}].value`}
+                                  placeholder=""
+                                  multiline={true}
+                                  style={{ margin: '0 auto', display: 'block' }}
+                                  component={RTextField}
+                                />
+                              </TableCell>
+                              <TableCell>
+                                <Field
+                                  type="text"
+                                  name={`possibleValues[${i}].description`}
+                                  placeholder=""
+                                  multiline={true}
+                                  style={{ margin: '0 auto', display: 'block' }}
+                                  component={RTextField}
+                                />
+                              </TableCell>
 
-              <Button color="primary">+ Add possible value</Button>
+                              {pv.isDefault === false && (
+                                <TableCell>
+                                  <Button
+                                    type="button"
+                                    onClick={() => remove(i)} // remove a friend from the list
+                                  >
+                                    -
+                                  </Button>
+                                </TableCell>
+                              )}
+                            </TableRow>
+                          ))}
+                      </TableBody>
+                    </Table>
+
+                    <Button
+                      color="primary"
+                      onClick={() =>
+                        push({ value: '', description: '', isDefault: false })
+                      }
+                    >
+                      + Add possible value
+                    </Button>
+                  </React.Fragment>
+                )}
+              />
             </div>
           </React.Fragment>
         )}

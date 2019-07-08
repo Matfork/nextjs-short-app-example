@@ -84,8 +84,8 @@ const ViewDescriptionManageComponent: React.SFC<
           </TableHead>
           <TableBody>
             {desc.possibleValues &&
-              desc.possibleValues.map(pv => (
-                <TableRow key={pv.id}>
+              desc.possibleValues.map((pv, i: number) => (
+                <TableRow key={i}>
                   <TableCell component="th" scope="row">
                     {pv.value !== 'null' ? (
                       <span className="value-italic">

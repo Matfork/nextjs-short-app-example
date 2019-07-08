@@ -16,7 +16,7 @@ class _Request extends React.Component<any> {
     return (
       <div className="request-page">
         <Head>
-          <title>Request page</title>
+          <title>Request | S Bank</title>
         </Head>
         <h1>Requests</h1>
         <div className="requestlist-component">

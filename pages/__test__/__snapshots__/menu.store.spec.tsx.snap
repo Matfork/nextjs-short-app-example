@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`menu_actions Dispatches the correct action and payload 1`] = `
+Array [
+  Object {
+    "data": "",
+    "type": "menu/request",
+  },
+]
+`;
+
+exports[`menu_reducer MENU_SUCCESS returns correct data 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "label": "user_id",
+      "value": 1,
+    },
+    Object {
+      "label": "item_id",
+      "value": 2,
+    },
+    Object {
+      "label": "user_email",
+      "value": 3,
+    },
+    Object {
+      "label": "item_views",
+      "value": 4,
+    },
+    Object {
+      "label": "item_favorites",
+      "value": 5,
+    },
+  ],
+  "error": null,
+  "loading": false,
+}
+`;

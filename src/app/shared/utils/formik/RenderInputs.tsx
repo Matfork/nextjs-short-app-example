@@ -103,15 +103,17 @@ export const RCheckboxField: React.SFC<
       fullWidth: boolean;
       margin: 'none' | 'dense' | 'normal';
     }
-> = ({
-  required = false,
-  fullWidth = false,
-  margin = 'none',
-  label,
-  field,
-  form: { dirty, touched, errors },
-  ...other
-}) => {
+> = props => {
+  const {
+    required = false,
+    fullWidth = false,
+    margin = 'none',
+    label,
+    field,
+    form: { dirty, touched, errors },
+    ...other
+  } = props;
+
   const errorText = errors[field.name];
   const hasError = dirty && touched[field.name] && errorText !== undefined;
 

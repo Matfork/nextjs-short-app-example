@@ -50,12 +50,14 @@ export class DatabaseStorageService {
                 {
                   id: 0,
                   value: 'null',
-                  description: 'Value when user is not found'
+                  description: 'Value when user is not found',
+                  isDefault: true
                 },
                 {
                   id: 1,
                   value: 'integer',
-                  description: 'ID key of user'
+                  description: 'ID key of user',
+                  isDefault: true
                 }
               ]
             },
@@ -70,12 +72,14 @@ export class DatabaseStorageService {
                 {
                   id: 0,
                   value: 'null',
-                  description: 'Value when user is not found'
+                  description: 'Value when user is not found',
+                  isDefault: true
                 },
                 {
                   id: 1,
                   value: 'integer',
-                  description: 'ID key of user'
+                  description: 'ID key of user',
+                  isDefault: true
                 }
               ]
             },
@@ -90,12 +94,14 @@ export class DatabaseStorageService {
                 {
                   id: 0,
                   value: 'null',
-                  description: 'Value when user is not found'
+                  description: 'Value when user is not found',
+                  isDefault: true
                 },
                 {
                   id: 1,
                   value: 'string',
-                  description: 'email of user'
+                  description: 'email of user',
+                  isDefault: true
                 }
               ]
             },
@@ -110,12 +116,14 @@ export class DatabaseStorageService {
                 {
                   id: 0,
                   value: 'null',
-                  description: 'Value when user is not found'
+                  description: 'Value when user is not found',
+                  isDefault: true
                 },
                 {
                   id: 1,
                   value: 'integer',
-                  description: 'ID key of user'
+                  description: 'ID key of user',
+                  isDefault: true
                 }
               ]
             },
@@ -130,12 +138,14 @@ export class DatabaseStorageService {
                 {
                   id: 0,
                   value: 'null',
-                  description: 'Value when user is not found'
+                  description: 'Value when user is not found',
+                  isDefault: true
                 },
                 {
                   id: 1,
                   value: 'integer',
-                  description: 'ID key of user'
+                  description: 'ID key of user',
+                  isDefault: true
                 }
               ]
             }
