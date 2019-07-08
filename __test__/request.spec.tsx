@@ -1,9 +1,9 @@
 /* eslint-env jest */
 import React from 'react';
-import RequestListRequestComponent from '../../src/app/modules/components/request/RequestList.request.component';
+import RequestListRequestComponent from '../src/app/modules/components/request/RequestList.request.component';
 import { mount } from 'enzyme';
-import { DatabaseStorageService } from '../../src/app/shared/services/DataStorage.service';
-import { DbRequest } from '../app/shared/interface/db.interface';
+import { DatabaseStorageService } from '../src/app/shared/services/DataStorage.service';
+import { DbRequest } from '../src/app/shared/interface/db.interface';
 
 describe('Request Page', () => {
   describe('All Request', () => {

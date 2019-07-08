@@ -1,8 +1,8 @@
 /* eslint-env jest */
 import configureStore from 'redux-mock-store';
-import * as menuActions from '../../src/app/shared/redux/actions/menu.actions';
-import * as menuReducers from '../../src/app/shared/redux/reducers/menu.reducer';
-import * as menuActionCreators from '../../src/app/shared/redux/actions/actionCreators/constants.actionCreators';
+import * as menuActions from '../src/app/shared/redux/actions/menu.actions';
+import * as menuReducers from '../src/app/shared/redux/reducers/menu.reducer';
+import * as menuActionCreators from '../src/app/shared/redux/actions/actionCreators/constants.actionCreators';
 
 const mockStore = configureStore();
 const store = mockStore();

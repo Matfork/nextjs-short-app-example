@@ -1,12 +1,12 @@
 /* eslint-env jest */
 import * as React from 'react';
 import { mount } from 'enzyme';
-import { DatabaseStorageService } from '../app/shared/services/DataStorage.service';
+import { DatabaseStorageService } from '../src/app/shared/services/DataStorage.service';
 import { Provider } from 'react-redux';
-import MenuManageComponent from '../app/modules/components/manage/Menu.manage.component';
+import MenuManageComponent from '../src/app/modules/components/manage/Menu.manage.component';
 import configureStore from 'redux-mock-store';
-import ViewDescriptionManageComponent from '../app/modules/components/manage/components/ViewDescription.manage.component';
-import { DbDescription } from '../app/shared/interface/db.interface';
+import ViewDescriptionManageComponent from '../src/app/modules/components/manage/components/ViewDescription.manage.component';
+import { DbDescription } from '../src/app/shared/interface/db.interface';
 
 const mockStore = configureStore();
 const initialState = {
