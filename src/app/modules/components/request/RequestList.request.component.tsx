@@ -9,6 +9,7 @@ import {
   Tab
 } from '@material-ui/core';
 import { DatabaseStorageService } from '../../../shared/services/DataStorage.service';
+import { DbRequest } from '../../../shared/interface/db.interface';
 import './css/RequestList.request.scss';
 
 interface RequestListRequestProps {}
@@ -87,7 +88,7 @@ const RequestListRequestComponent: React.SFC<RequestListRequestProps> = () => {
               <TableCell>STATUS</TableCell>
             </TableRow>
           </TableHead>
-          <TableBody>
+          <TableBody className="table-body">
             {filtered.map(pr => (
               <TableRow key={pr.id}>
                 <TableCell component="th" scope="row">

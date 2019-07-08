@@ -1,10 +1,12 @@
+/* eslint-env jest */
 import * as React from 'react';
-import { shallow, mount } from 'enzyme';
-import Manage from '../../pages/manage';
-import MenuManageComponent from '../../src/app/modules/components/manage/Menu.manage.component';
+import { mount } from 'enzyme';
+import { DatabaseStorageService } from '../app/shared/services/DataStorage.service';
+import { Provider } from 'react-redux';
+import MenuManageComponent from '../app/modules/components/manage/Menu.manage.component';
 import configureStore from 'redux-mock-store';
-import { DatabaseStorageService } from '../../src/app/shared/services/DataStorage.service';
-import ViewDescriptionManageComponent from '../../src/app/modules/components/manage/components/ViewDescription.manage.component';
+import ViewDescriptionManageComponent from '../app/modules/components/manage/components/ViewDescription.manage.component';
+import { DbDescription } from '../app/shared/interface/db.interface';
 
 const mockStore = configureStore();
 const initialState = {
@@ -35,15 +37,47 @@ const initialState = {
 };
 const store = mockStore(initialState);
 
-describe('Mage', () => {
-  describe('Menu', () => {
+describe('Manage Page', () => {
+  // describe('Manage Page', () => {
+  //   it('should render full page', async function() {
+  //     const wrap = shallow(
+  //       <Container>
+  //         <Provider store={store}>
+  //           <Manage />
+  //         </Provider>
+  //       </Container>
+  //     );
+
+  //     expect(wrap.html()).toBeDefined();
+  //   });
+  // });
+
+  describe('Menu Component', () => {
     it('should have same length for menu', async function() {
       await DatabaseStorageService.initialize();
       const data = await DatabaseStorageService.getTableData('manage.menu');
+      const onMenuRequest = jest.fn();
+      const onKeySelected = jest.fn();
 
-      const wrap = shallow(<MenuManageComponent />, {
-        context: { store }
-      }).dive();
+      // https://github.com/airbnb/enzyme/issues/2165
+      // const wrap = shallow(
+      //   <Provider store={store}>
+      //     <MenuManageComponent
+      //       onMenuRequest={onMenuRequest}
+      //       onKeySelected={onKeySelected}
+      //     />
+      //   </Provider>
+      // ).dive();
+
+      const wrap = mount(
+        <Provider store={store}>
+          <MenuManageComponent
+            onMenuRequest={onMenuRequest}
+            onKeySelected={onKeySelected}
+          />
+        </Provider>
+      );
+
       //console.log(wrap.find('div.menu-manage-component .option').length);
       expect(wrap.find('div.menu-manage-component .option')).toHaveLength(
         data.length
@@ -51,33 +85,7 @@ describe('Mage', () => {
     });
   });
 
-  // describe('Description', () => {
-  //   it('should have description, type, sensitivity', async function() {
-  //     await DatabaseStorageService.initialize();
-  //     const menuData = await DatabaseStorageService.getTableData('manage.menu');
-  //     const setRouteHook = jest.fn();
-
-  //     const wrap = shallow(<Manage params={{ router: setRouteHook }} />, {
-  //       context: { store }
-  //     });
-
-  //     console.log(wrap.html());
-
-  //     //const wrapMenuManage = mount(<MenuManageComponent />);
-  //     // console.log(wrapMenuManage.html());
-
-  //     // wrapMenuManage
-  //     //   .find('div.menu-manage-component .option')
-  //     //   .at(0)
-  //     //   .simulate('click');
-
-  //     // expect(
-  //     //   wrapMenuManage.find('div.menu-manage-component .option').at(0)
-  //     // ).toHaveBeenCalledTimes(1);
-  //   });
-  // });
-
-  describe('ViewDescription', () => {
+  describe('ViewDescription Component', () => {
     it('should have description, type, sensitivity', async function() {
       await DatabaseStorageService.initialize();
       const desc: DbDescription = DatabaseStorageService.getTableDataBy(

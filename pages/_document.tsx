@@ -4,6 +4,10 @@ import { ServerStyleSheets } from '@material-ui/styles';
 import theme from '../src/material/theme';
 
 class CustomDocument extends Document {
+
+  static async getInitialProps(ctx) {
+
+  }
   render() {
     return (
       <html lang="en">
@@ -20,7 +24,11 @@ class CustomDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
           />
-          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+          <link
+            rel="shortcut icon"
+            type="image/x-icon"
+            href="/static/favicon.ico"
+          />
         </Head>
         <body>
           <Main />
@@ -31,7 +39,7 @@ class CustomDocument extends Document {
   }
 }
 
-CustomDocument.getInitialProps = async ctx => {
+CustomDocument.getInitialProps  = async ctx => {
   console.log('CustomDocument');
 
   // Resolution order

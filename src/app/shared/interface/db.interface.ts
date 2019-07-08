@@ -1,9 +1,16 @@
-interface DbMenu {
+interface DbPossibleValues {
+  id: number;
+  value: string;
+  description: string;
+  isDefault: boolean;
+}
+
+export interface DbMenu {
   value: number;
   label: string;
 }
 
-interface DbDescription {
+export interface DbDescription {
   id: number;
   keyName: string;
   description: string;
@@ -12,14 +19,7 @@ interface DbDescription {
   possibleValues: DbPossibleValues[];
 }
 
-interface DbPossibleValues {
-  id: number;
-  value: string;
-  description: string;
-  isDefault: boolean;
-}
-
-interface DbRequest {
+export interface DbRequest {
   id: number;
   date: string;
   reason: string;

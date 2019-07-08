@@ -29,7 +29,9 @@ const Link: React.SFC<any> = (props: any) => {
   } = props;
 
   const className = clsx(classNameProps, {
-    [activeClassName]: router.pathname === props.href && activeClassName
+    [activeClassName]: router
+      ? router.pathname === props.href && activeClassName
+      : ''
   });
 
   if (naked) {
@@ -70,7 +72,7 @@ Link.propTypes = {
   prefetch: PropTypes.bool,
   router: PropTypes.shape({
     pathname: PropTypes.string.isRequired
-  }).isRequired
+  })
 };
 
 Link.defaultProps = {

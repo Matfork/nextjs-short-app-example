@@ -18,6 +18,7 @@ import {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { onMenuRequest } from '../../../../shared/redux/actions/menu.actions';
+import { DbDescription } from '../../../../shared/interface/db.interface';
 import './css/EditDescription.manage.scss';
 
 interface EditDescriptionManageProps {

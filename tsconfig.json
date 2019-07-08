@@ -18,7 +18,18 @@
     "strict": true,
     "target": "esnext",
     "typeRoots": ["./node_modules/@types"],
-    "outDir": ".next"
+    "outDir": ".next",
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "exclude": [".next", "server/**/*.*"]
+  "exclude": [
+    ".next",
+    "server/**/*.*",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -11,8 +11,8 @@ if (typeof require !== 'undefined') {
   require.extensions['.less'] = file => {};
 }
 
-module.exports = withSass(
-  withTypescript({
+module.exports = withTypescript(
+  withSass({
     publicRuntimeConfig: {
       localeSubpaths:
         typeof process.env.LOCALE_SUBPATHS === 'string'

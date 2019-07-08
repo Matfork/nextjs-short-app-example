@@ -1,4 +1,3 @@
-const baseDir = require('app-root-path').path;
 const low = require('lowdb');
 // const FileSync = require('lowdb/adapters/FileSync');
 const LocalStorage = require('lowdb/adapters/LocalStorage');

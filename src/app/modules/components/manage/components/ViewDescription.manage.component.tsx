@@ -10,6 +10,7 @@ import {
 } from '@material-ui/core';
 import { DatabaseStorageService } from '../../../../shared/services/DataStorage.service';
 import { ModesAvailable } from '../Description.manage.component';
+import { DbDescription } from '../../../../shared/interface/db.interface';
 
 interface ViewDescriptionManageProps {
   menuId: number;

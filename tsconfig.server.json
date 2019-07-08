@@ -8,5 +8,5 @@
     "outDir": ".next/server"
   },
   "include": ["server/**/*.*", "config/**/*.ts"],
-  "exclude": [".next"]
+  "exclude": [".next", "src/__test__/**/*.*"]
 }

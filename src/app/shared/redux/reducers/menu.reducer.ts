@@ -1,4 +1,5 @@
 import { AC_MENU } from '../actions/actionCreators/constants.actionCreators';
+import { DbMenu } from '../../interface/db.interface';
 
 export interface IMenuState {
   loading: boolean;
